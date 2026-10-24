@@ -19,3 +19,4 @@ A lightweight, browser-based web application built with Python and Flask that de
 4. Install Flask: `pip install flask`
 5. Run the app: `python app.py`
 6. Open `http://127.0.0.1:5000` in your browser.
+7. 📄 **[Click here to read the full Project Report](./crypto_web_app)**
