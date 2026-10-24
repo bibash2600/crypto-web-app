@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Encryption App</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; background-color: #f4f4f9; }
+        .container { background: white; padding: 20px; border-radius: 8px; max-width: 500px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); }
+        input, select, button { width: 100%; padding: 10px; margin-top: 8px; margin-bottom: 16px; box-sizing: border-box; }
+        button { background-color: #007bff; color: white; border: none; cursor: pointer; font-weight: bold; }
+        button:hover { background-color: #0056b3; }
+        .result-box { background: #d4edda; color: #155724; padding: 15px; border-radius: 5px; margin-top: 20px; border: 1px solid #c3e6cb; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Encryption Tool</h1>
+        
+        <form method="POST">
+            <label>Enter Text:</label>
+            <input type="text" name="text" required>
+
+            <label>Algorithm:</label>
+            <select name="algorithm">
+                <option value="caesar">Caesar Cipher</option>
+                <option value="vigenere">Vigenère Cipher</option>
+                <option value="railfence">Rail Fence Cipher</option>
+                <option value="playfair">Playfair Cipher</option>
+            </select>
+
+            <label>Caesar Shift Key (Number):</label>
+            <input type="number" name="shift" value="3" min="1" max="25">
+
+            <label>Vigenère Key (Word):</label>
+            <input type="text" name="vigenere_key" placeholder="e.g. SECRET">
+            
+            <label>Rail Fence (Number of Rails):</label>
+            <input type="number" name="rails" value="3" min="2">
+
+            <label>Playfair Key (Word):</label>
+            <input type="text" name="playfair_key" placeholder="e.g. MONARCHY">
+
+            <label>Mode:</label>
+            <select name="mode">
+                <option value="encrypt">Encrypt</option>
+                <option value="decrypt">Decrypt</option>
+            </select>
+
+            <button type="submit">Process Text</button>
+        </form>
+
+        {% if result %}
+            <div class="result-box">
+                <strong>Result:</strong> 
+                <p>{{ result }}</p>
+            </div>
+        {% endif %}
+    </div>
+
+</body>
+</html>
